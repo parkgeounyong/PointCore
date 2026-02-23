@@ -6,3 +6,5 @@ spring:
     url: jdbc:postgresql://localhost:5432/point
     username: postgres
     password: postgrespassword
+  jpa:
+    open-in-view: false
