@@ -1,3 +1,8 @@
 spring:
   application:
     name: point-core
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/point
+    username: postgres
+    password: postgrespassword
