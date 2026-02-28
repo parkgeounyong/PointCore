@@ -15,4 +15,8 @@ class UserRepositoryImpl(
             .save(user.toEntity())
             .toDomain()
     }
+
+    override fun findByUserId(userId: String): User {
+        return userJpaRepository.findByUserId(userId).toDomain()
+    }
 }

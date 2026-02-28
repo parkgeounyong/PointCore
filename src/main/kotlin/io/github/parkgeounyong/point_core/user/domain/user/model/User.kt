@@ -5,12 +5,34 @@ import java.time.Instant
 class User(
     val id: Long? = null,
     val userId: String,
-    val pw: String,
-    val name: String,
-    val phone: String,
     val entDate: Instant,
-    val updDate: Instant,
+    pw: String,
+    name: String,
+    phone: String,
+    updDate: Instant,
 ) {
+    var pw: String = pw
+        private set
+
+    var name: String = name
+        private set
+
+    var phone: String = phone
+        private set
+
+    var updDate: Instant = updDate
+        private set
+
+    fun update(pw: String, name: String, phone: String) {
+        require(name.isNotBlank())
+        require(phone.isNotBlank())
+
+        this.pw = pw
+        this.name = name
+        this.phone = phone
+        this.updDate = updDate
+    }
+
     companion object {
         fun create(
             userId: String,
