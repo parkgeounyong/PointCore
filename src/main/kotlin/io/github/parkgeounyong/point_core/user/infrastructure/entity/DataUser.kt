@@ -11,7 +11,7 @@ class DataUser(
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "data_user_id_gen")
     @SequenceGenerator(name = "data_user_id_gen", sequenceName = "data_user_seq", allocationSize = 1)
     @Column(name = "seq_id", nullable = false)
-    var id: Long,
+    var id: Long? = null,
 
     @Column(name = "user_id", nullable = false, length = 50)
     var userId: String,
