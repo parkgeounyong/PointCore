@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: point
+      POSTGRES_USER: postgres
+    command: ["postgres", "-c", "log_statement=all"]
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgresql_data:
