@@ -24,9 +24,9 @@ class DataPointAccount(
     @Column(name = "balance", nullable = false, precision = 20, scale = 2)
     var balance: BigDecimal,
 
-    @ColumnDefault("0")
+    @Version
     @Column(name = "version", nullable = false)
-    var version: Long,
+    var version: Long = 0,
 
     @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "ent_date", nullable = false)

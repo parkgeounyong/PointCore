@@ -4,4 +4,5 @@ import io.github.parkgeounyong.point_core.point.infrastructure.entity.DataPointA
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface PointAccountJpaRepository : JpaRepository<DataPointAccount, Long> {
+    fun findByUserSeq(userSeq: Long):DataPointAccount?
 }
