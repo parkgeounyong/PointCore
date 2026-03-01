@@ -37,4 +37,7 @@ class DataPointTransaction(
     @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "ent_date", nullable = false)
     var entDate: Instant,
+
+    @Column(name = "original_transaction_seq_id")
+    var originalTransactionSeqId: Long? = null,
 )

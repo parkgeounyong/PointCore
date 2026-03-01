@@ -16,6 +16,7 @@ object PointTransactionEntityMapper {
             entDate = this.entDate,
             amount = this.amount,
             balanceAfter = this.balanceAfter,
+            originalTransactionSeqId = this.originalTransactionSeqId,
         )
     }
 
@@ -28,6 +29,7 @@ object PointTransactionEntityMapper {
             entDate = this.entDate,
             amount = this.amount,
             balanceAfter = this.balanceAfter,
+            originalTransactionSeqId = this.originalTransactionSeqId,
         )
     }
 }
