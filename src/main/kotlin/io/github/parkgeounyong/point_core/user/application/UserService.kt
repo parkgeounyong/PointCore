@@ -22,7 +22,7 @@ class UserService(
     }
 
     fun update(userUpdateCommand: UserUpdateCommand): User {
-        val result = userRepository.findByUserId(userUpdateCommand.userId)
+        val result = userRepository.findByUserId(userUpdateCommand.userId) ?: User.create(userUpdateCommand.userId, userUpdateCommand.name, userUpdateCommand.pw, userUpdateCommand.phone)
         result.update(
             pw = userUpdateCommand.pw,
             name = userUpdateCommand.name,

@@ -16,7 +16,7 @@ class UserRepositoryImpl(
             .toDomain()
     }
 
-    override fun findByUserId(userId: String): User {
-        return userJpaRepository.findByUserId(userId).toDomain()
+    override fun findByUserId(userId: String): User? {
+        return userJpaRepository.findByUserId(userId)?.toDomain()
     }
 }
