@@ -2,6 +2,7 @@ package io.github.parkgeounyong.point_core.point.infrastructure.repository
 
 import io.github.parkgeounyong.point_core.point.domain.model.PointTransaction
 import io.github.parkgeounyong.point_core.point.domain.repository.PointTransactionRepository
+import io.github.parkgeounyong.point_core.point.infrastructure.entity.DataPointAccount
 import io.github.parkgeounyong.point_core.point.infrastructure.mapper.PointTransactionEntityMapper.toDomain
 import io.github.parkgeounyong.point_core.point.infrastructure.mapper.PointTransactionEntityMapper.toEntity
 import jakarta.persistence.EntityManager
@@ -18,7 +19,16 @@ class PointTransactionRepositoryImpl(
     }
     override fun save(pointTransaction: PointTransaction): PointTransaction {
         val entity = pointTransaction.toEntity()
-        entity.pointAccount = entityManager.merge(entity.pointAccount)
-        return pointTransactionJpaRepository.save(entity).toDomain()
+
+        val accountRef = entityManager.getReference(
+            DataPointAccount::class.java,
+            pointTransaction.pointAccount.id
+        )
+
+        entity.pointAccount = accountRef
+
+        return pointTransactionJpaRepository
+            .save(entity)
+            .toDomain()
     }
 }
